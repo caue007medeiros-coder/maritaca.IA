@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ringue 2D — Boxe Arcade</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Iluminação de arena -->
+  <div class="arena-light"></div>
+
+  <!-- TELA INICIAL -->
+  <section id="start-screen" class="screen active">
+    <div class="start-content">
+      <h1 class="game-title">🥊 RINGUE 2D</h1>
+      <p class="subtitle">Boxe arcade — PvP local</p>
+      <div class="instructions">
+        <div class="keybinds">
+          <div>
+            <strong>Player 1</strong><br>
+            <kbd>A</kbd> ← · <kbd>D</kbd> → · <kbd>S</kbd> Socar
+          </div>
+          <div>
+            <strong>Player 2</strong><br>
+            <kbd>J</kbd> ← · <kbd>L</kbd> → · <kbd>K</kbd> Socar
+          </div>
+        </div>
+      </div>
+      <button id="start-btn" class="btn-main">JOGAR</button>
+    </div>
+  </section>
+
+  <!-- RINGUE (o jogo) -->
+  <div id="game-area" class="hidden">
+    <div class="ring-border">
+      <div class="ring">
+        <!-- Cordas do ringue -->
+        <div class="rope" data-index="0"></div>
+        <div class="rope" data-index="1"></div>
+        <div class="rope" data-index="2"></div>
+
+        <!-- Boxeadores -->
+        <div class="boxer boxer-p1" id="p1">
+          <div class="shadow"></div>
+          <div class="sprite" id="p1-sprite"></div>
+          <div class="health-bar" id="p1-health"></div>
+        </div>
+
+        <div class="boxer boxer-p2" id="p2">
+          <div class="shadow"></div>
+          <div class="sprite" id="p2-sprite"></div>
+          <div class="health-bar" id="p2-health"></div>
+        </div>
+
+        <!-- Efeitos de golpe -->
+        <div class="impact-flash" id="impact-flash"></div>
+      </div>
+    </div>
+
+    <!-- HUD -->
+    <div class="hud">
+      <div class="hud-player hud-p1">
+        <div class="hud-name">P1</div>
+        <div class="hud-score" id="p1-score">0</div>
+      </div>
+      <div class="timer" id="round-timer">60</div>
+      <div class="hud-player hud-p2">
+        <div class="hud-name">P2</div>
+        <div class="hud-score" id="p2-score">0</div>
+      </div>
+    </div>
+
+    <!-- Overlay de PAUSA -->
+    <div class="pause-overlay" id="pause-overlay">
+      <div class="pause-content">
+        <h2>⏸️ PAUSADO</h2>
+        <button id="resume-btn" class="btn-main">CONTINUAR</button>
+        <button id="menu-btn" class="btn-secondary">VOLTAR AO MENU</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TELA DE FIM -->
+  <section id="end-screen" class="screen">
+    <div class="end-content">
+      <h2 id="winner-text">VENCEDOR!</h2>
+      <div class="final-score">
+        <span id="final-score-p1">0</span> — <span id="final-score-p2">0</span>
+      </div>
+      <button id="restart-btn" class="btn-main">JOGAR NOVAMENTE</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
